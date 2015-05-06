@@ -1,0 +1,6 @@
+{
+  "name": "Branch VNext Authentication",
+  "description": "A simple nodejs api to authentication with.",
+  "repository": "https://github.com/TheTree/branch-vnext-auth",
+  "keywords": ["node", "express", "branch", "authentication"]
+}
