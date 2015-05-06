@@ -14,18 +14,15 @@ app.post('/api/v1/halo4', function (req, res) {
 		return;
 	}
 
-	var identity = null;
-	var password = null;
-	var twoFactorCode = null;
+	var microsoftAccount = null;
+	var microsoftAccountPassword = null;
 
 	if (req.body.identity != undefined)
-		identity = req.body["identity"];
+		microsoftAccount = req.body["MicrosoftAccount"];
 	if (req.body.identity_password != undefined)
-		password = req.body["identity_password"];
-	if (req.body.identity_two_factor_code != undefined)
-		twoFactorCode = req.body["identity_two_factor_code"];
+		microsoftAccountPassword = req.body["MicrosoftAccountPassword"];
 
-	if (identity == null || password == null) {
+	if (microsoftAccount == null || microsoftAccountPassword == null) {
 		res.json({ result: null, error: { error_description: "No account information" } });
 		return;
 	}
@@ -34,8 +31,8 @@ app.post('/api/v1/halo4', function (req, res) {
 	Browser.userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36";
 	browser.visit("https://app.halowaypoint.com/oauth/spartanToken", function() {
 		browser.
-			fill("input[type=email]", identity).
-			fill("input[type=password]", password).
+			fill("input[type=email]", microsoftAccount).
+			fill("input[type=password]", microsoftAccountPassword).
 			pressButton("Sign in", function() {
 				if (browser.text('body').indexOf('SpartanToken') != -1) {
 					var data = browser.text('body');
