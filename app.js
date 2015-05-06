@@ -42,7 +42,7 @@ app.post('/api/v1/halo4', function (req, res) {
 					res.json({ result: JSON.parse(data), error: null });
 					browser.close();
 				} else {
-					res.json({ result: null, error: { error_description: "Unable to authenticate with Halo Waypoint." } });
+					res.json({ result: null, error: { description: "unable_to_authentication_with_halo_waypoint", details: browser.text('body') } });
 					browser.close();
 					return;
 				}
