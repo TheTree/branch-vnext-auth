@@ -37,8 +37,8 @@ app.post('/api/v1/halo4', function (req, res) {
 			fill("input[type=email]", identity).
 			fill("input[type=password]", password).
 			pressButton("Sign in", function() {
-				if (browser.text.indexOf('SpartanToken') != -1) {
-					var data = browser.text;
+				if (browser.text('body').indexOf('SpartanToken') != -1) {
+					var data = browser.text('body');
 					res.json({ result: JSON.parse(data), error: null });
 					browser.close();
 				} else {
