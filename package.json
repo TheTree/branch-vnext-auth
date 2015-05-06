@@ -1,5 +1,9 @@
 {
-	"name": "Branch-Authentication-Api",
+	"name": "Branch-VNext-Authentication",
+	"author": "Alexander Forbes-Reed",
+	"contributors": [
+		"Connor Tumbleson <connor.tumbleson@gmail.com>"
+	],
 	"version": "1.0.0",
 	"dependencies": {
 		"express": "4.10.4",
