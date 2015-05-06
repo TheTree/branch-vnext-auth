@@ -1,5 +1,5 @@
 {
-	"name": "Branch Authentication Api",
+	"name": "Branch-Authentication-Api",
 	"version": "1.0.0",
 	"dependencies": {
 		"express": "4.10.4",
