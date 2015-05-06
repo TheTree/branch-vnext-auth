@@ -39,7 +39,7 @@ app.post('/api/v1/halo4', function (req, res) {
 			pressButton("Sign in", function() {
 				if (browser.text.indexOf('SpartanToken') != -1) {
 					var data = browser.text;
-					res.json({ result: data, error: null });
+					res.json({ result: JSON.parse(data), error: null });
 					browser.close();
 				} else {
 					res.json({ result: null, error: { error_description: "Unable to authenticate with Halo Waypoint." } });
