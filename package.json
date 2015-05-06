@@ -1,5 +1,6 @@
 {
 	"name": "Branch-VNext-Authentication",
+	"description": "A simple nodejs api to authenticate with Halo Waypoint.",
 	"author": "Alexander Forbes-Reed",
 	"contributors": [
 		"Connor Tumbleson <connor.tumbleson@gmail.com>"

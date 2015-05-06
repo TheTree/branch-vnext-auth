@@ -1,7 +1,7 @@
 Branch VNext Authentication
 ===
 
-A simple nodejs api to authentication with [Halo Waypoint](https://halowaypoint.com).
+A simple nodejs api to authenticate with [Halo Waypoint](https://halowaypoint.com).
 
 ## Running Locally
 

@@ -1,6 +1,6 @@
 {
   "name": "Branch VNext Authentication",
-  "description": "A simple nodejs api to authentication with Halo Waypoint.",
+  "description": "A simple nodejs api to authenticate with Halo Waypoint.",
   "repository": "https://github.com/TheTree/branch-vnext-auth",
   "keywords": ["node", "express", "branch", "authentication"]
 }
