@@ -39,10 +39,10 @@ app.post('/api/v1/halo4', function (req, res) {
 			pressButton("Sign in", function() {
 				if (browser.text('body').indexOf('SpartanToken') != -1) {
 					var data = browser.text('body');
-					res.json({ result: JSON.parse(data), error: null });
+					res.json({ Result: JSON.parse(data), Error: null });
 					browser.close();
 				} else {
-					res.json({ result: null, error: { description: "unable_to_authentication_with_halo_waypoint", details: browser.text('body') } });
+					res.json({ Result: null, Error: { Description: "unable_to_authentication_with_halo_waypoint", details: browser.text('body') } });
 					browser.close();
 					return;
 				}
