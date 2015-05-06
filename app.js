@@ -37,38 +37,14 @@ app.post('/api/v1/halo4', function (req, res) {
 			fill("input[type=email]", identity).
 			fill("input[type=password]", password).
 			pressButton("Sign in", function() {
-				if (browser.text("title").indexOf("protect your") > -1) {
-					if (twoFactorCode != null) {
-						browser.fill("input[name=otc]", twoFactorCode);
-						browser.pressButton("Submit", function() {
-							res.send(browser.text('html'));
-//							console.log(browser.text("title"));
-//							var index = browser.url.indexOf('token');
-//							if (index != -1) {
-//								var data = browser.url.substring(index);
-//								res.json({ result: querystring.parse(data), error: null });
-//								browser.close();
-//							} else {
-//								browser.close();
-//								res.json({ result: null, error: { error_description: "Either the two factor authenication code is invalid/has expired, or unable to authenitcate with Halo Waypoint." } });
-//							}
-						});
-					} else {
-						browser.close();
-						res.json({ result: null, error: { error_description: "This account has two factor authenication. Pass in the code from the authenticator app, and try again." } });
-					}
+				if (browser.text.indexOf('SpartanToken') != -1) {
+					var data = browser.text;
+					res.json({ result: data, error: null });
+					browser.close();
 				} else {
-					res.send(browser.text('html'));
-//					var index = browser.url.indexOf('token');
-//					if (index != -1) {
-//						var data = browser.url.substring(index);
-//						res.json({ result: querystring.parse(data), error: null });
-//						browser.close();
-//					} else {
-//						res.json({ result: null, error: { error_description: "Unable to authenticate with Halo Waypoint." } });
-//						browser.close();
-//						return;
-//					}
+					res.json({ result: null, error: { error_description: "Unable to authenticate with Halo Waypoint." } });
+					browser.close();
+					return;
 				}
 			});
 	});
