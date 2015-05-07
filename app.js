@@ -17,13 +17,13 @@ app.post('/api/v1/halo4', function (req, res) {
 	var microsoftAccount = null;
 	var microsoftAccountPassword = null;
 
-	if (req.body.identity != undefined)
+	if (req.body["MicrosoftAccount"] != undefined)
 		microsoftAccount = req.body["MicrosoftAccount"];
-	if (req.body.identity_password != undefined)
+	if (req.body["MicrosoftAccountPassword"] != undefined)
 		microsoftAccountPassword = req.body["MicrosoftAccountPassword"];
 
 	if (microsoftAccount == null || microsoftAccountPassword == null) {
-		res.json({ result: null, error: { error_description: "No account information" } });
+		res.json({ Result: null, Error: { Description: "No account information" } });
 		return;
 	}
 
