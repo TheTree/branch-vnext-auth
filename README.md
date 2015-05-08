@@ -1,5 +1,6 @@
 Branch VNext Authentication
 ===
+![https://github.com/thetree/branch-vnext-auth/issues](https://img.shields.io/github/issues/thetree/branch-vnext-auth.svg?style=flat-square) ![https://github.com/thetree/branch-vnext-auth/blob/master/LICENSE.md](https://img.shields.io/github/license/thetree/branch-vnext-auth.svg?style=flat-square) ![https://travis-ci.org/TheTree/branch-vnext-auth](https://img.shields.io/travis/thetree/branch-vnext-auth.svg?style=flat-square)
 
 A simple nodejs api to authenticate with [Halo Waypoint](https://halowaypoint.com).
 
