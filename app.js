@@ -29,7 +29,7 @@ app.post('/api/v1/halo4', function (req, res) {
 
 	var browser = new Browser();
 	Browser.userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36";
-	browser.visit("https://app.halowaypoint.com/oauth/spartanToken", function() {
+	browser.visit("https://login.live.com/oauth20_authorize.srf?client_id=000000004C0BD2F1&scope=xbox.basic+xbox.offline_access&response_type=code&redirect_uri=https://haloreachstats.halowaypoint.com/oauth/callback&state=https%253a%252f%252fapp.halowaypoint.com%252fen-US&locale=en-US&display=touch", function() {
 		browser.
 			fill("input[type=email]", microsoftAccount).
 			fill("input[type=password]", microsoftAccountPassword).
