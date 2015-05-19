@@ -1,15 +1,16 @@
 {
 	"name": "Branch-VNext-Authentication",
-	"description": "A simple nodejs api to authenticate with Halo Waypoint.",
+	"description": "A simple nodejs api to authenticate with Halo Waypoint, and Xbox Live.",
 	"author": "Alexander Forbes-Reed",
 	"contributors": [
 		"Connor Tumbleson <connor.tumbleson@gmail.com>"
 	],
 	"version": "1.0.0",
 	"dependencies": {
-		"express": "4.10.4",
-		"zombie": "2.0.8",
 		"body-parser": "1.9.3",
-		"querystring": "0.2.0"
+		"express": "4.10.4",
+		"querystring": "0.2.0",
+		"request": "^2.55.0",
+		"zombie": "2.0.8"
 	}
 }

@@ -2,15 +2,17 @@ var Browser = require("zombie");
 var express = require('express');
 var bodyParser = require("body-parser");
 var querystring = require("querystring");
+var request = require('request');
 var app = express();
-
 app.use(bodyParser());
+
 app.get('/', function (req, res) {
 	res.json({ "urm...": "you're in the wrong part of the right place." });
 });
+
 app.post('/api/v1/halo4', function (req, res) {
 	if (req.body == undefined) {
-		res.json({ result: null, error: { error_description: "No account information" } });
+		res.json({ result: null, error: { error_description: "no_account_information" } });
 		return;
 	}
 
@@ -23,7 +25,7 @@ app.post('/api/v1/halo4', function (req, res) {
 		microsoftAccountPassword = req.body["MicrosoftAccountPassword"];
 
 	if (microsoftAccount == null || microsoftAccountPassword == null) {
-		res.json({ Result: null, Error: { Description: "No account information" } });
+		res.json({ Result: null, Error: { Description: "no_account_information" } });
 		return;
 	}
 
@@ -41,6 +43,45 @@ app.post('/api/v1/halo4', function (req, res) {
 				} else {
 					res.json({ Result: null, Error: { Description: "unable_to_authentication_with_halo_waypoint", details: browser.text('body') } });
 					browser.close();
+					return;
+				}
+			});
+	});
+});
+
+app.post('api/v1/xboxlive', function(req, res) {
+	if (req.body == undefined) {
+		res.json({ result: null, error: { error_description: "no_account_information" } });
+		return;
+	}
+
+	var microsoftAccount = null;
+	var microsoftAccountPassword = null;
+
+	if (req.body["MicrosoftAccount"] != undefined)
+		microsoftAccount = req.body["MicrosoftAccount"];
+	if (req.body["MicrosoftAccountPassword"] != undefined)
+		microsoftAccountPassword = req.body["MicrosoftAccountPassword"];
+
+	if (microsoftAccount == null || microsoftAccountPassword == null) {
+		res.json({ Result: null, Error: { Description: "no_account_information" } });
+		return;
+	}
+	
+	var browser = new Browser();
+	Browser.userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36";
+	browser.visit("https://login.live.com/oauth20_authorize.srf?client_id=0000000048093EE3&redirect_uri=https://login.live.com/oauth20_desktop.srf&response_type=token&display=touch&scope=service::user.auth.xboxlive.com::MBI_SSL", function() {
+		browser.
+			fill("input[type=email]", microsoftAccount).
+			fill("input[type=password]", microsoftAccountPassword).
+			pressButton("Sign in", function() {
+				var index = browser.url.indexOf('access_token');
+				if (index != -1) {
+					var data = browser.url.substring(index);
+					res.json({ Result: querystring.parse(data), Error: null });
+					browser.close();
+				} else {
+					res.json({ Result: null, Error: { Description: "unable_to_authentication_with_xbox_live" } });
 					return;
 				}
 			});
