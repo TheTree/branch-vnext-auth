@@ -5,12 +5,13 @@ var querystring = require("querystring");
 var request = require('request');
 var app = express();
 app.use(bodyParser());
+var router = express.Router();
 
-app.get('/', function (req, res) {
+router.route('/').get(function(req, res, next) {
 	res.json({ "urm...": "you're in the wrong part of the right place." });
 });
 
-app.post('/api/v1/halo4', function (req, res) {
+router.route('/api/v1/halo4').post(function(req, res, next) {
 	if (req.body == undefined) {
 		res.json({ result: null, error: { error_description: "no_account_information" } });
 		return;
@@ -49,7 +50,8 @@ app.post('/api/v1/halo4', function (req, res) {
 	});
 });
 
-app.post('api/v1/xboxlive', function(req, res) {
+
+router.route('/api/v1/halo4').post(function(req, res, next) {
 	if (req.body == undefined) {
 		res.json({ result: null, error: { error_description: "no_account_information" } });
 		return;
