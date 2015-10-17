@@ -4,7 +4,9 @@ var bodyParser = require("body-parser");
 var querystring = require("querystring");
 var request = require('request');
 var app = express();
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 var router = express.Router();
 
