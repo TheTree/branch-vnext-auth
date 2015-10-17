@@ -4,7 +4,8 @@ var bodyParser = require("body-parser");
 var querystring = require("querystring");
 var request = require('request');
 var app = express();
-app.use(bodyParser());
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 var router = express.Router();
 
 router.route('/').get(function(req, res, next) {
