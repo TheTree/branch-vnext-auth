@@ -6,6 +6,9 @@
 		"Connor Tumbleson <connor.tumbleson@gmail.com>"
 	],
 	"version": "1.0.0",
+	"engines": {
+    "node": "0.10.x"
+  }
 	"dependencies": {
 		"body-parser": "1.9.3",
 		"express": "4.10.4",
