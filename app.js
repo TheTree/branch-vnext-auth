@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 	res.json({ "urm...": "you're in the wrong part of the right place." });
 });
 
-router.route('/halo4').post(function(req, res, next) {
+app.post('/api/v1/halo4', function(req, res) {
 	if (req.body == undefined) {
 		res.json({ result: null, error: { error_description: "no_account_information" } });
 		return;
@@ -54,7 +54,7 @@ router.route('/halo4').post(function(req, res, next) {
 	});
 });
 
-router.route('/xboxlive').post(function(req, res, next) {
+router.post('/api/v1/xboxlive', function(req, res) {
 	if (req.body == undefined) {
 		res.json({ result: null, error: { error_description: "no_account_information" } });
 		return;
@@ -93,5 +93,4 @@ router.route('/xboxlive').post(function(req, res, next) {
 	});
 });
 
-app.use('/api/v1', router);
 app.listen(process.env.PORT || 3001);
