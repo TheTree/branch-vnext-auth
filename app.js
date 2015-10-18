@@ -54,7 +54,7 @@ app.post('/api/v1/halo4', function(req, res) {
 	});
 });
 
-router.post('/api/v1/xboxlive', function(req, res) {
+app.post('/api/v1/xboxlive', function(req, res) {
 	if (req.body == undefined) {
 		res.json({ result: null, error: { error_description: "no_account_information" } });
 		return;
