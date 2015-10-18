@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
 	res.json({ "urm...": "you're in the wrong part of the right place." });
 });
 
