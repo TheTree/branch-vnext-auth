@@ -1,6 +1,6 @@
 Branch VNext Authentication
 ===
-![https://travis-ci.org/TheTree/branch-vnext-auth](https://img.shields.io/travis/TheTree/branch-vnext-auth.svg?style=flat-square&label=windows%20build) ![https://github.com/thetree/branch-vnext-auth/issues](https://img.shields.io/github/issues/thetree/branch-vnext-auth.svg?style=flat-square) ![https://github.com/thetree/branch-vnext-auth/blob/master/LICENSE.md](https://img.shields.io/github/license/thetree/branch-vnext-auth.svg?style=flat-square) ![https://travis-ci.org/TheTree/branch-vnext-auth](https://img.shields.io/travis/thetree/branch-vnext-auth.svg?style=flat-square)
+![https://travis-ci.org/TheTree/branch-vnext-auth](https://img.shields.io/travis/TheTree/branch-vnext-auth.svg?style=flat-square&label=windows%20build) ![https://github.com/thetree/branch-vnext-auth/issues](https://img.shields.io/github/issues/thetree/branch-vnext-auth.svg?style=flat-square) ![https://github.com/thetree/branch-vnext-auth/blob/master/LICENSE.md](https://img.shields.io/github/license/thetree/branch-vnext-auth.svg?style=flat-square) [![Github Stars](https://img.shields.io/github/stars/TheTree/branch.svg?style=flat-square)](https://github.com/TheTree/branch/stargazers) ![https://travis-ci.org/TheTree/branch-vnext-auth](https://img.shields.io/travis/thetree/branch-vnext-auth.svg?style=flat-square)
 
 A simple nodejs api to authenticate with [Halo Waypoint](https://halowaypoint.com), and [Xbox Live](https://xboxlive.com).
 
