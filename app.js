@@ -76,19 +76,22 @@ app.post('/api/v1/xboxlive', function(req, res) {
 	var browser = new Browser();
 	Browser.userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36";
 	browser.visit("https://login.live.com/oauth20_authorize.srf?client_id=0000000048093EE3&redirect_uri=https://login.live.com/oauth20_desktop.srf&response_type=token&display=touch&scope=service::user.auth.xboxlive.com::MBI_SSL", function() {
-		browser.
-			fill("input[type=email]", microsoftAccount).
-			fill("input[type=password]", microsoftAccountPassword).
-			pressButton("Sign in", function() {
-				var index = browser.url.indexOf('access_token');
-				if (index != -1) {
-					var data = browser.url.substring(index);
-					res.json({ Result: querystring.parse(data), Error: null });
-					browser.close();
-				} else {
-					res.json({ Result: null, Error: { Description: "unable_to_authentication_with_xbox_live" } });
-					return;
-				}
+		browser
+			.fill("input[type=email]", microsoftAccount)
+			.pressButton('Next', function() {
+				browser
+					.fill("input[type=password]", microsoftAccountPassword)
+					.pressButton("Sign in", function() {
+						var index = browser.url.indexOf('access_token');
+						if (index != -1) {
+							var data = browser.url.substring(index);
+							res.json({ Result: querystring.parse(data), Error: null });
+							browser.close();
+						} else {
+							res.json({ Result: null, Error: { Description: "unable_to_authentication_with_xbox_live" } });
+							return;
+						}
+					});
 			});
 	});
 });
